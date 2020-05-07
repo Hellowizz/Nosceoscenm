@@ -1,0 +1,11 @@
+.section-container {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.divider {
+	width: 8px;
+	margin: 0 5px;
+	border-radius: 4px;
+	background-color: #26262a;
+}
