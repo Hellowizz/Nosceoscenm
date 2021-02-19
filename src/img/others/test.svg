@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="350px" height="350px" viewBox="0 0 200 300" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="path1"
+          fill="none" stroke="white" stroke-width="1" color="white"
+          d="M 212,65
+             C 276,81 292,91 305,103 361,155 
+               363,245 311,302 300,314 286,324 
+               271,332 248,343 227,347 202,347 
+               190,346 174,343 163,339 143,333">
+    </path>
+    <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+  </defs>
+  <text width="500">
+    <textPath xlink:href="#curve" fill="white">
+      Dangerous Curves Ahead
+    </textPath>
+  </text>
+</svg>

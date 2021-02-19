@@ -1,0 +1,86 @@
+.round-turning-invert {
+	 animation: animate 6000ms linear infinite;
+	 width: 350px;
+	 height: 350px;
+	 border-radius: 50%;
+	 box-shadow: 0 0 5px #e2eff0,
+               0 0 10px  #e2eff0,
+               0 0 15px  #e2eff0,
+               0 0 20px  #808080,
+               0 0 45px  #808080,
+               0 0 40px  #808080,
+               0 0 50px #808080,
+               0 0 60px #808080;
+	 margin: 40px auto;
+	 background: center/cover no-repeat url("./img/others/round.png");
+}
+
+@media (max-width: 375px) {
+	.round-turning-invert  {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@keyframes animate {
+	0% {
+		box-shadow: 0 0 5px #e2eff0,
+               0 0 10px #e2eff0,
+               0 0 15px #e2eff0,
+               0 0 20px #EC2E31,
+               0 0 25px #EC2E31,
+               0 0 45px #EC2E31,
+               0 0 90px #EC2E31,
+               0 0 120px #EC2E31;
+	}
+	25%{
+		box-shadow: 0 0 0px #e2eff0,
+               0 0 0px  #e2eff0,
+               0 0 0px  #e2eff0,
+               0 0 0px  #808080,
+               0 0 0px  #808080,
+               0 0 0px  #808080,
+               0 0 0px #808080,
+               0 0 0px #808080;
+	}
+	50% {
+		box-shadow: 0 0 5px #e2eff0,
+               0 0 10px #e2eff0,
+               0 0 15px #e2eff0,
+               0 0 20px #808080,
+               0 0 25px #808080,
+               0 0 45px #808080,
+               0 0 90px #808080,
+               0 0 120px #808080;
+	}
+	75%{
+		box-shadow: 0 0 0px #e2eff0,
+               0 0 0px  #e2eff0,
+               0 0 0px  #e2eff0,
+               0 0 0px  #808080,
+               0 0 0px  #808080,
+               0 0 0px  #808080,
+               0 0 0px #808080,
+               0 0 0px #808080;
+	}
+    100%{
+        transform: rotate(1turn);
+        box-shadow: 0 0 5px #e2eff0,
+               0 0 10px #e2eff0,
+               0 0 15px #e2eff0,
+               0 0 20px #808080,
+               0 0 25px #808080,
+               0 0 45px #808080,
+               0 0 90px #808080,
+               0 0 120px #808080;
+    }
+  to {
+    
+  }
+}
+
+@keyframes animateInvert {
+    100%{
+        transform: rotate(-1turn);
+    }
+}

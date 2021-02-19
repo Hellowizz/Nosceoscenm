@@ -7,14 +7,24 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
-import { withStyles } from '@material-ui/core/styles';
 
 import './section.css'
 
+const CustomAvatar = withStyles({
+  root: {
+    width: '100px', 
+    height: '100px', 
+    transition: '.5s'
+  }
+})(Avatar);
+
 const CustomExpansionPanel = withStyles({
   root: {
-    border: '1px solid rgba(0, 0, 0, .125)',
+    border: 'none',
     boxShadow: 'none',
+    color: 'white', 
+    
+    background: 'none',
     padding: '10px 5px 10px 5px',
     '&:not(:last-child)': {
       borderBottom: 0,
@@ -24,9 +34,13 @@ const CustomExpansionPanel = withStyles({
     },
     '&$expanded': {
       margin: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
     },
   },
-  expanded: {},
+  expanded: {
+    fontFamily: 'Era Casual',
+  },
 })(ExpansionPanel);
 
 const CustomExpansionPanelSummary = withStyles({
@@ -35,6 +49,7 @@ const CustomExpansionPanelSummary = withStyles({
     minHeight: 108,
     '&$expanded': {
       minHeight: 108,
+      display: 'flex',
     },
   },
   content: {
@@ -42,26 +57,19 @@ const CustomExpansionPanelSummary = withStyles({
     alignItems: 'center',
     '&$expanded': {
       margin: '12px 0',
+      display: 'flex',
     },
   },
-  expanded: {},
-})(ExpansionPanelSummary);
-
-const styles = {
-  root: {
-    width: '100%',
-    boxShadow: 'none'
-  },
-  align: {
+  expanded: {
     display: 'flex',
-    alignItems: 'center'
-  }
-};
+  },
+})(ExpansionPanelSummary);
 
 const CustomExpansionPanelDetails = withStyles({
   root: {
     display: 'flex',
-    alignItem: 'center'
+    flexDirection: 'column',
+    maxWidth: '300px',
   },
 })(ExpansionPanelDetails);
 
@@ -75,8 +83,10 @@ export default class SimpleExpansionPanel extends React.Component {
   constructor(props) {
     super(props);
     // N’appelez pas `this.setState()` ici !
-    this.state = { expanded: false };
+    this.state = { expanded: false, hover: false };
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   handleClick (event, expanded) {
@@ -84,21 +94,31 @@ export default class SimpleExpansionPanel extends React.Component {
     console.log('expanded : ' + expanded);
   }
 
+  handleMouseEnter (event) {
+    this.setState({ hover : true });
+  }
+
+  handleMouseLeave (event) {
+    this.setState({ hover : false });
+  }
+
   render()  {
     return (
-      <div className="section-container" styles={styles.root}>
-        <CustomExpansionPanel onChange={this.handleClick} >
-          <CustomExpansionPanelSummary aria-controls="panel1a-content" id="panel1a-header" >
-              <Avatar alt="avatar" src={this.props.image} 
-                 style={{ width: '80px', height: '80px', border: '3px solid #26262a', opacity: this.state.expanded ? '0' : '1', transition: '.5s'}}
+      <div className="section-container" styles={{ display: 'flex' }}>
+        <CustomExpansionPanel onChange={this.handleClick} style= {{ border : (this.state.expanded ? '1px solid rgba(255, 255, 255, .6)' : '1px solid rgba(255, 255, 255, 0)' ) }}>
+          <CustomExpansionPanelSummary aria-controls="panel1a-content" id="panel1a-header" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+              <CustomAvatar 
+                alt="avatar" 
+                src={this.props.image} 
+                style={{ boxShadow: this.state.hover ? '0 0 2px #e2eff0, 0 0 8px #e2eff0, 0 0 18px #808080, 0 0 22px #808080, 0 0 33px #808080' : 'none' }} 
               />
-              <Typography style={{ marginLeft: '30px', fontWeight: '600', fontSize: '20px' }}>
+              <Typography style={{ marginLeft: '30px', fontSize: '20px', fontFamily: 'Era Casual' }}>
                 {this.props.name}
               </Typography>
           </CustomExpansionPanelSummary>
           <CustomExpansionPanelDetails style={{ opacity: this.state.expanded ? '1' : '0', transition: '.5s' }}>
-            <img alt="chibi" src={this.props.chibi} style={{ width: '250px' }} />
-            <Typography style={{ marginLeft: '15px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}><img alt="chibi" src={this.props.chibi} style={{ width: '250px' }} /></div>
+            <Typography style={{ padding: '10px', textAlign: 'center', overflow: 'hidden' }}>
               {this.props.description}
             </Typography>
           </CustomExpansionPanelDetails>

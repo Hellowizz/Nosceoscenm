@@ -1,0 +1,83 @@
+a:nth-child(1) {
+  font-family: Era Casual;
+  cursor: pointer;
+  color: #e2eff0;
+}
+
+a:nth-child(1):hover{
+  -webkit-animation: neon1 .5s ease-in-out infinite alternate;
+  -moz-animation: neon1 .5s ease-in-out infinite alternate;
+  animation: neon1 .5s ease-in-out infinite alternate; 
+}
+
+/*glow for webkit*/
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 5px #e2eff0,
+               0 0 10px  #e2eff0,
+               0 0 15px  #e2eff0,
+               0 0 20px  #808080,
+               0 0 45px  #808080,
+               0 0 40px  #808080,
+               0 0 90px #808080,
+               0 0 120px #808080;
+  }
+  to {
+    text-shadow: 0 0 2px #e2eff0,
+               0 0 5px #e2eff0,
+               0 0 7px #e2eff0,
+               0 0 10px #808080,
+               0 0 17px #808080,
+               0 0 20px #808080,
+               0 0 25px #808080,
+               0 0 37px #808080;
+  }
+}
+
+/*glow for mozilla*/
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 5px #e2eff0,
+               0 0 10px  #e2eff0,
+               0 0 15px  #e2eff0,
+               0 0 20px  #808080,
+               0 0 45px  #808080,
+               0 0 40px  #808080,
+               0 0 90px  #808080,
+               0 0 120px  #808080;
+  }
+  to {
+    text-shadow: 0 0 2px #e2eff0,
+               0 0 5px #e2eff0,
+               0 0 7px #e2eff0,
+               0 0 10px #808080,
+               0 0 17px #808080,
+               0 0 20px #808080,
+               0 0 25px #808080,
+               0 0 37px #808080;
+  }
+}
+
+/*glow*/
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 5px #e2eff0,
+               0 0 10px  #e2eff0,
+               0 0 15px  #e2eff0,
+               0 0 20px  #808080,
+               0 0 45px  #808080,
+               0 0 40px  #808080,
+               0 0 90px  #808080,
+               0 0 120px  #808080;
+  }
+  to {
+    text-shadow: 0 0 2px #e2eff0,
+               0 0 5px #e2eff0,
+               0 0 7px #e2eff0,
+               0 0 10px #808080,
+               0 0 17px #808080,
+               0 0 20px #808080,
+               0 0 25px #808080,
+               0 0 37px #808080;
+  }
+}
